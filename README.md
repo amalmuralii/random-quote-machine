@@ -1,2 +1,2 @@
 # random-quote-machine
-Random quote generating react.js application
+React application to generate random quotes and allows to tweet in twitter.
