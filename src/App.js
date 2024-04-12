@@ -1,10 +1,13 @@
 import './App.scss';
-import QuoteBoxComponent from './QuoteBox/Quote-box'
+import QuoteBoxComponent from './QuoteBox/Quote-box';
 
 function App() {
   return (
     <div className="App">
-      <QuoteBoxComponent />
+      <div className='quote-box-container'>
+        <QuoteBoxComponent />
+      </div>
+
     </div>
   );
 }
