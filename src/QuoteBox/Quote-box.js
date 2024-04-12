@@ -4,12 +4,12 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { BsQuote } from "react-icons/bs";
 import { TfiReload } from "react-icons/tfi";
-import { BsDash } from "react-icons/bs";
 
 
 function QuoteBoxComponent() {
-    const [content, setContent] = useState('');
-    const [author, setAuthor] = useState('');
+    const [content, setContent] = useState('Rest at the end, not in the middle.');
+    const [author, setAuthor] = useState('Amal Murali');
+    const twitterLogo = 'https://www.svgrepo.com/show/475689/twitter-color.svg';
 
     useEffect(() => {
         getQuote();
@@ -38,17 +38,31 @@ function QuoteBoxComponent() {
 
             {/* Author container start */}
             <div id="author" className="author">
-                <p> <BsDash /> {author}</p>
+                <p>
+                    - {author}
+                </p>
             </div>
             {/* End of author  */}
 
             {/* Buttons container start*/}
             <div className="buttons">
                 <button className="button" type="submit">
-                    <img className="logo" src="https://www.svgrepo.com/show/475689/twitter-color.svg" alt="logo" />
-                    <a id="tweet-quote"></a>
+                    <a
+                        id="tweet-quote"
+                        href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(`${content} - ${author}`)}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <img
+                            className="logo"
+                            src={twitterLogo}
+                            alt="logo"
+                        />
+                    </a>
                 </button>
-                <button className="button" onClick={getQuote}>
+                <button
+                    className="button"
+                    onClick={getQuote}>
                     <TfiReload />
                 </button>
             </div>
